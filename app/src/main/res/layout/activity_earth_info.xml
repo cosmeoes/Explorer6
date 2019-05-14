@@ -62,6 +62,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/txtTemp"
                 android:textSize="18sp"
+                android:text="Ejemplo"
                 android:lineSpacingExtra="8dp"
                 android:padding="20dp"/>
 
@@ -78,12 +79,9 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/txtCO2"
                 android:textSize="18sp"
+                android:text="Ejemplo"
                 android:lineSpacingExtra="8dp"
                 android:padding="20dp"/>
-            <WebView
-                android:id="@+id/webview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"></WebView>
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>

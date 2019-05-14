@@ -29,19 +29,23 @@ public class EarthInfo extends AppCompatActivity {
 
 
         try {
-            String respuesta = new ConexionServidor("https://climate.nasa.gov/vital-signs/carbon-dioxide/").execute().get();
-//            JSONObject json = (JSONObject) new JSONTokener(respuesta).nextValue();
-//            JSONArray results = (JSONArray) json.get("results");
-
-
+            String respuesta = new ConexionServidor("https://climate.nasa.gov/vital-signs/global-temperature/").execute().get();
             Document doc= Jsoup.parse(respuesta);
             Element primaryColumn = doc.getElementById("primary_column");
-
-            Element valueElems = primaryColumn.getElementsByClass("wysiwyg_content").first()
+            Element value = primaryColumn.getElementsByClass("wysiwyg_content").first()
                     .getElementsByClass("latest_measurement").first().getElementsByClass("value").first();
-            WebView wb = findViewById(R.id.webview);
-            wb.loadUrl("https://climate.nasa.gov/system/charts/15_co2_left_040518.gif");
-            Log.d("Respueta", "onCreate: "+valueElems.text());
+            TextView txtTemp = findViewById(R.id.txtTemp);
+            txtTemp.setText(value.text());
+
+            respuesta = new ConexionServidor("https://climate.nasa.gov/vital-signs/carbon-dioxide/").execute().get();
+            doc= Jsoup.parse(respuesta);
+            primaryColumn = doc.getElementById("primary_column");
+            value = primaryColumn.getElementsByClass("wysiwyg_content").first()
+                    .getElementsByClass("latest_measurement").first().getElementsByClass("value").first();
+            TextView txtC02 = findViewById(R.id.txtCO2);
+            txtC02.setText(value.text());
+
+            Log.d("Respueta", "onCreate: "+value.text());
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
