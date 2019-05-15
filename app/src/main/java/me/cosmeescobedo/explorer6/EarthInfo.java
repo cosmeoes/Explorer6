@@ -2,13 +2,17 @@ package me.cosmeescobedo.explorer6;
 
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.webkit.WebView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,7 +39,7 @@ public class EarthInfo extends AppCompatActivity {
             Element value = primaryColumn.getElementsByClass("wysiwyg_content").first()
                     .getElementsByClass("latest_measurement").first().getElementsByClass("value").first();
             TextView txtTemp = findViewById(R.id.txtTemp);
-            txtTemp.setText(value.text());
+            txtTemp.setText("Anomalía media anual: " + value.text());
 
             respuesta = new ConexionServidor("https://climate.nasa.gov/vital-signs/carbon-dioxide/").execute().get();
             doc= Jsoup.parse(respuesta);
@@ -43,7 +47,7 @@ public class EarthInfo extends AppCompatActivity {
             value = primaryColumn.getElementsByClass("wysiwyg_content").first()
                     .getElementsByClass("latest_measurement").first().getElementsByClass("value").first();
             TextView txtC02 = findViewById(R.id.txtCO2);
-            txtC02.setText(value.text());
+            txtC02.setText("Medicion actual: " + value.text());
 
             Log.d("Respueta", "onCreate: "+value.text());
         } catch (ExecutionException e) {
@@ -55,6 +59,10 @@ public class EarthInfo extends AppCompatActivity {
 //            e.printStackTrace();
 //        }
 
+        ViewPager viewPager = findViewById(R.id.viewPager);
+        viewPager.setAdapter(new ViewPagerAdapter(this, Datos.imgUrl, Datos.years));
+        ImageView imgC02 = findViewById(R.id.imgC02);
+        Picasso.get().load("https://climate.nasa.gov/system/charts/15_co2_left_040518.gif").into(imgC02);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Informacion Tierra");
