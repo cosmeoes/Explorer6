@@ -22,6 +22,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class EarthInfo extends AppCompatActivity {
@@ -57,7 +59,8 @@ public class EarthInfo extends AppCompatActivity {
         }
 //        catch (JSONException e) {
 //            e.printStackTrace();
-//        }
+//        }).
+
 
         ViewPager viewPager = findViewById(R.id.viewPager);
         viewPager.setAdapter(new ViewPagerAdapter(this, Datos.imgUrl, Datos.years));
@@ -68,5 +71,11 @@ public class EarthInfo extends AppCompatActivity {
         getSupportActionBar().setTitle("Informacion Tierra");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

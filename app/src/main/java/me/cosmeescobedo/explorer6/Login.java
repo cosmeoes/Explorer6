@@ -35,7 +35,7 @@ public class Login extends AppCompatActivity {
                 JSONArray jsonArray = new JSONArray(respuesta);
                 Usuario.init(jsonArray.getJSONObject(2).getJSONArray("usuario").getJSONObject(0));
                 EstadoLanzamento.init(jsonArray.getJSONObject(1).getJSONObject("estado_lanzamiento"));
-                startActivity(new Intent(this, EarthInfo.class));
+                startActivity(new Intent(this, MainActivity.class));
             }
 
         } catch (ExecutionException e) {
