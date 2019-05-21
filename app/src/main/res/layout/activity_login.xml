@@ -48,6 +48,8 @@
             android:textColor="#fff"
             />
         <EditText
+            android:id="@+id/email"
+            android:text="comeoes@gmail.com"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
@@ -64,6 +66,7 @@
         android:layout_marginBottom="35dp"
         android:orientation="vertical">
         <TextView
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Contrasenia"
@@ -71,6 +74,8 @@
             android:textColor="#fff"
             />
         <EditText
+            android:id="@+id/pass"
+            android:text="123456"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="8dp"
@@ -90,5 +95,6 @@
         android:layout_marginEnd="10dp"
         android:textColor="#fff"
         android:background="@drawable/borderbutton"
+        android:onClick="login"
         />
 </LinearLayout>
