@@ -46,6 +46,13 @@
             android:textSize="25dp"
             android:text="Trayectoria del cohete"/>
     </LinearLayout>
+    <Button
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Mandar ok"/>
 
 
 

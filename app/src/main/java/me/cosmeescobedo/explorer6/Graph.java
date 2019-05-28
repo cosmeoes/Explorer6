@@ -49,7 +49,7 @@ public class Graph extends AppCompatActivity {
         cartesian.xAxis(0).labels().padding(5d, 5d, 5d, 5d);
 
         List<DataEntry> seriesData = new ArrayList<>();
-        seriesData.add(new CustomDataEntry("1986", 3.6, 2.3, 2.8));
+        seriesData.add(new CustomDataEntry("1986", 3.6, 0, 0));
         seriesData.add(new CustomDataEntry("1987", 7.1, 4.0, 4.1));
         seriesData.add(new CustomDataEntry("1988", 8.5, 6.2, 5.1));
         seriesData.add(new CustomDataEntry("1989", 9.2, 11.8, 6.5));
